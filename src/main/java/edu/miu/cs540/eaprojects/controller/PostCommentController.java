@@ -46,6 +46,15 @@ public class PostCommentController {
         return ResponseEntity.ok().build();
     }
 
+    @DeleteMapping("/comments/delete-all-by-post-id/{postId}")
+    public ResponseEntity deleteAllCommentByPostId(@PathVariable Long postId) {
+//        PostDto postDto = postProxyClient.getPostById(postId);
+//        if (postDto == null) throw new PostNotFoundException("Post not found");
+        postCommentService.deleteAllByPostId(postId);
+        return ResponseEntity.ok().build();
+
+    }
+
 
     @PutMapping("/comments/{commentId}")
     public ResponseEntity updateComment(@PathVariable Long commentId, @RequestBody PostCommentDto postCommentDto) {

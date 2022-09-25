@@ -7,10 +7,12 @@ import edu.miu.cs540.eaprojects.repository.PostCommentRepository;
 import edu.miu.cs540.eaprojects.util.ApplicationUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@Transactional
 public class PostCommentService implements IPostComment {
 
 
@@ -51,6 +53,13 @@ public class PostCommentService implements IPostComment {
     @Override
     public List<PostCommentDto> findAllByPostList(List<Long> postListId) {
         return postCommentMapper.toListDto(postCommentRepository.findAllByPostIdIn(postListId));
+    }
+
+
+
+    @Override
+    public void deleteAllByPostId(Long postId) {
+        postCommentRepository.deleteAllByPostId(postId);
     }
 
     private PostCommentDto persistComment(PostCommentDto postCommentDto) {
