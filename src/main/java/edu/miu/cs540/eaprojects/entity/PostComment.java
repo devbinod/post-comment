@@ -21,12 +21,12 @@ public class PostComment {
     private Long id;
     private String comment;
 
-    private LocalDate createDate;
+    private LocalDate createdDate;
     private Long postId;
     private Long userId;
 
     @PrePersist
     public void prePersist() {
-        if (createDate == null) createDate = LocalDate.now();
+        if (createdDate == null) createdDate = LocalDate.now();
     }
 }
