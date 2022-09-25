@@ -16,4 +16,6 @@ public interface IPostComment {
     PostCommentDto update(PostCommentDto postCommentDto);
 
     PostCommentDto save(PostCommentDto postCommentDto);
+
+    List<PostCommentDto> findAllByPostList(List<Long> postListId);
 }

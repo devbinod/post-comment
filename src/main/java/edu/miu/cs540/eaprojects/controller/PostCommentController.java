@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api")
 public class PostCommentController {
@@ -55,7 +57,15 @@ public class PostCommentController {
     }
 
 
+    @PutMapping("/comments/by-post-list")
+    public ResponseEntity getListOfCommentByPostList(@RequestBody List<Long> postListId) {
+        return ResponseEntity.ok().body(postCommentService.findAllByPostList(postListId));
+    }
+
+
     private PostCommentDto findByCommentId(Long commentId) {
         return postCommentService.findById(commentId);
     }
+
+
 }

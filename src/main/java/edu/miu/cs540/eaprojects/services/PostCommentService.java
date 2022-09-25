@@ -48,7 +48,10 @@ public class PostCommentService implements IPostComment {
 
     }
 
-
+    @Override
+    public List<PostCommentDto> findAllByPostList(List<Long> postListId) {
+        return postCommentMapper.toListDto(postCommentRepository.findAllByPostIdIn(postListId));
+    }
 
     private PostCommentDto persistComment(PostCommentDto postCommentDto) {
         return postCommentMapper.toDto(
