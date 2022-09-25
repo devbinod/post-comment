@@ -13,6 +13,8 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>EA-Projects</name>
     <description>EA-Projects</description>
+
+
     <properties>
         <java.version>17</java.version>
         <mapstruct.version>1.5.2.Final</mapstruct.version>
