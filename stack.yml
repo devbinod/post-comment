@@ -1,0 +1,21 @@
+version: '3.1'
+
+services:
+
+  db:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: on-failure
+    environment:
+      MYSQL_ROOT_PASSWORD: devbinod
+
+
+  post-app:
+    build:
+      dockerfile: Dockerfile
+    restart: on-failure
+    environment:
+      DB_HOST: db
+      DATABASE_NAME: post-app
+      DB_ROOT: root
+      DB_PASS: devbinod
