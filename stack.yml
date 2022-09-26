@@ -16,6 +16,8 @@ services:
     restart: on-failure
     environment:
       DB_HOST: db
-      DATABASE_NAME: post-app
+      DATABASE_NAME: post_app
       DB_ROOT: root
       DB_PASS: devbinod
+    ports:
+      - "8082:8080"
